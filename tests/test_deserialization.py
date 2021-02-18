@@ -1745,6 +1745,11 @@ class TestSchemaDeserialization:
         data = MySchema().load({"foo": "hi", "bar.baz": "okay", "alpha.beta": "woah!"})
         assert data == {"foo": "hi", "bar": "okay", "alpha.beta": "woah!"}
 
+    def test_field_with_dotted_attribute_name(self):
+        MySchema = Schema.from_dict({"foo.bar": fields.Str()})
+        data = MySchema().load({"foo.bar": "hi"})
+        assert data == {"foo.bar": "hi"}
+
 
 validators_gen = (func for func in [lambda x: x <= 24, lambda x: 18 <= x])
 

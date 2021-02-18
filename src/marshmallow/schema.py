@@ -673,7 +673,14 @@ class Schema(base.SchemaABC, metaclass=SchemaMeta):
                 )
                 if value is not missing:
                     key = field_obj.attribute or attr_name
-                    set_value(ret_d, key, value)
+                    if (
+                        field_obj.data_key is None
+                        and field_obj.attribute is None
+                        and "." in key
+                    ):
+                        ret_d[key] = value
+                    else:
+                        set_value(ret_d, key, value)
             if unknown != EXCLUDE:
                 fields = {
                     field_obj.data_key if field_obj.data_key is not None else field_name
