@@ -22,7 +22,7 @@ INCLUDE = "include"
 RAISE = "raise"
 
 
-class _Missing:
+class MissingType:
     def __bool__(self):
         return False
 
@@ -36,10 +36,14 @@ class _Missing:
         return "<marshmallow.missing>"
 
 
+# old name maintained for compatibility
+_Missing = MissingType
+
+
 # Singleton value that indicates that a field's value is missing from input
 # dict passed to :meth:`Schema.load`. If the field's value is not required,
 # it's ``default`` value is used.
-missing = _Missing()
+missing = MissingType()
 
 
 def is_generator(obj) -> bool:

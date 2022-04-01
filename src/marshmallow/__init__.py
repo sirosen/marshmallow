@@ -11,7 +11,7 @@ from marshmallow.decorators import (
     validates,
     validates_schema,
 )
-from marshmallow.utils import EXCLUDE, INCLUDE, RAISE, pprint, missing
+from marshmallow.utils import EXCLUDE, INCLUDE, RAISE, pprint, missing, MissingType
 from marshmallow.exceptions import ValidationError
 from packaging.version import Version
 
@@ -37,5 +37,6 @@ __all__ = [
     "post_load",
     "pprint",
     "ValidationError",
+    "MissingType",
     "missing",
 ]

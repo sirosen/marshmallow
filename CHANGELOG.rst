@@ -1,6 +1,14 @@
 Changelog
 ---------
 
+3.16.0 (Unreleased)
+*******************
+
+Features:
+
+- The type of ``marshmallow.missing`` is now accessible under the name
+  ``marshmallow.MissingType`` for use in annotations
+
 3.15.0 (2022-03-12)
 *******************
 
